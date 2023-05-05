@@ -43,6 +43,10 @@ class Player:
         strOut = f'Name: {self.name}\nRace: {self.race}\n' + \
             f'Class: {self.charClass}\n'
         strOut += f'Strenght:  {self.strenght.atribut}\n'
-        strOut += f'Dexterity: {self.dexterity.atribut}'
+        strOut += f'Dexterity: {self.dexterity.atribut}\n'
+        strOut += f'Constitution: {self.constitution.atribut}\n'
+        strOut += f'Inteligence: {self.inteligence.atribut}\n'
+        strOut += f'Wisdom: {self.wisdom.atribut}\n'
+        strOut += f'Charisma: {self.charisma.atribut}\n'
 
         return strOut
