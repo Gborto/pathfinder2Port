@@ -1,18 +1,18 @@
-from dices.roll import nDices
+from dices.roll import rollDice
 
 
 def atributeStatistic():
-    dices = nDices(4, 6)
+    dices = rollDice(4, 6)
 
     return sum(dices) - min(dices)
 
 
-def atributeModifier(attribute):
-    return int((attribute - 10)/2)
+def atributeModifier(atribute):
+    return int((atribute - 10)/2)
 
 
-def generateAttribut():
-    atribut = atributeStatistic()
-    modifier = atributeModifier(atribut)
+def generateAtribute():
+    atribute = atributeStatistic()
+    modifier = atributeModifier(atribute)
 
-    return atribut, modifier
+    return atribute, modifier

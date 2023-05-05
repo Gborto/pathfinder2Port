@@ -1,13 +1,13 @@
 import random
 
 
-def diceN(dice):
-    return random.randint(1, dice)
+def dice(die):
+    return random.randint(1, die)
 
 
-def nDices(n, dice):
+def rollDice(n, die):
     dices = []
     for i in range(n):
-        dices.append(diceN(dice))
+        dices.append(dice(die))
 
     return dices
