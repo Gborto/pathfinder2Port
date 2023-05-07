@@ -38,3 +38,10 @@ class WeaponProficiencies:
         self.uncommonSimpleWeapons = uncommonSimpleWeapons
         self.martialWeapons = martialWeapons
         self.uncommonMartialWeapons = uncommonMartialWeapons
+
+
+if __name__ == '__main__':
+    profRank = None
+    profBonus = proficiencyScores(profRank)
+    input(profRank)
+    print(int(profBonus))
