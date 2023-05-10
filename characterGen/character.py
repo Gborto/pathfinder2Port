@@ -15,11 +15,14 @@ class Atributes:
         self.modifier = atributeModifier(newAtribute)
 
 
+
 class Character:
     name = None
     ancestry = None
     charClass = None
     level = None
+    maxHP = None
+    currentHP = None
 
     strenght = None
     dexterity = None
@@ -28,11 +31,13 @@ class Character:
     wisdom = None
     charisma = None
 
-    def __init__(self, name, ancestry, charClass, level=0):
+    def __init__(self, name, ancestry, charClass, level=0, maxHP, currentHP):
         self.name = name
         self.ancestry = ancestry
         self.charClass = charClass
         self.level = level
+        self.maxHP = maxHP
+        self.currentHP = currentHP
 
         self.strenght = Atributes(atributeStatistic())
         self.dexterity = Atributes(atributeStatistic())
