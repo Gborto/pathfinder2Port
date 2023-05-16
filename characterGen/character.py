@@ -1,5 +1,6 @@
 #
 from dices.statistics import atributeModifier, atributeStatistic
+from tables.basics import hpPerAncestry, hpPerClass
 
 
 class Atributes:
@@ -15,7 +16,6 @@ class Atributes:
         self.modifier = atributeModifier(newAtribute)
 
 
-
 class Character:
     name = None
     ancestry = None
@@ -23,6 +23,7 @@ class Character:
     level = None
     maxHP = None
     currentHP = None
+    ac = None
 
     strenght = None
     dexterity = None
@@ -31,13 +32,16 @@ class Character:
     wisdom = None
     charisma = None
 
-    def __init__(self, name, ancestry, charClass, level=0, maxHP, currentHP):
+    armorProficiencies = []
+
+    def armorClass(self):
+        self.ac = 10 + armorProficiency + armorBonus + dexBonus
+
+    def __init__(self, name, ancestry='human', charClass='fighter'):
         self.name = name
         self.ancestry = ancestry
         self.charClass = charClass
-        self.level = level
-        self.maxHP = maxHP
-        self.currentHP = currentHP
+        self.level = 1
 
         self.strenght = Atributes(atributeStatistic())
         self.dexterity = Atributes(atributeStatistic())
@@ -46,9 +50,18 @@ class Character:
         self.wisdom = Atributes(atributeStatistic())
         self.charisma = Atributes(atributeStatistic())
 
+        self.maxHP = hpPerClass[charClass] \
+            + hpPerAncestry[ancestry] \
+            + self.constitution.modifier
+        self.currentHP = self.maxHP
+
+        self.ac = armorClass()
+
     def __repr__(self) -> str:
         strOut = f'Name: {self.name}\nRace: {self.ancestry}\n' + \
-            f'Class: {self.charClass}\nLevel: {self.level}'
+            f'Class: {self.charClass}\nLevel: {self.level}\n'
+        strOut += f'Max HP: {self.maxHP}\n'
+        strOut += 'Atributes:\n'
         strOut += f'Strenght:  {self.strenght.atribute}\n'
         strOut += f'Dexterity: {self.dexterity.atribute}\n'
         strOut += f'Constitution: {self.constitution.atribute}\n'
